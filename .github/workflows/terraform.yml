@@ -31,3 +31,16 @@ jobs:
 
     - name: Terraform Apply
       run: terraform apply -auto-approve
+
+      - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Plan
+      run: terraform plan
+      env:
+        TF_VAR_db_password: ${{ secrets.DB_PASSWORD }}
+
+    - name: Terraform Apply
+      run: terraform apply -auto-approve
+      env:
+        TF_VAR_db_password: ${{ secrets.DB_PASSWORD }}
