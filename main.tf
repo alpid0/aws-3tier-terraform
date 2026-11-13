@@ -1,10 +1,10 @@
 terraform {
   backend "s3" {
-    bucket         = "alpid0-terraform-state-vault-2026"
-    key            = "prod/terraform.tfstate"
-    region         = "ap-southeast-2"
-    dynamodb_table = "terraform-state-lock"
-    encrypt        = true
+    bucket       = "alpid0-terraform-state-vault-2026"
+    key          = "prod/terraform.tfstate"
+    region       = "ap-southeast-2"
+    use_lockfile = true
+    encrypt      = true
   }
 }
 provider "aws" { region = var.aws_region }
